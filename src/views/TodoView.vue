@@ -47,36 +47,36 @@ export default {
     return {
       newTaskTitle: '',
       tasks: [
-        {
-          id: 1658635212987,
-          title: 'Wake up',
-          done: false,
-          datetime: "24/07/2022, 12:08:39"
-        },
-        {
-          id: 1658635212988,
-          title: 'Get bananas',
-          done: false,
-          datetime: "24/07/2022, 12:08:39"
-        },
-        {
-          id: 1658635212989,
-          title: 'Eat bananas',
-          done: false,
-          datetime: "24/07/2022, 12:08:39"
-        },
-        {
-          id: 1658635212990,
-          title: 'Wake up',
-          done: false,
-          datetime: "24/07/2022, 12:08:39"
-        },
-        {
-          id: 1658635212995,
-          title: 'Get bananas',
-          done: false,
-          datetime: "24/07/2022, 12:08:39"
-        }
+        // {
+        //   id: 1658635212987,
+        //   title: 'Wake up',
+        //   done: false,
+        //   datetime: "24/07/2022, 12:08:39"
+        // },
+        // {
+        //   id: 1658635212988,
+        //   title: 'Get bananas',
+        //   done: false,
+        //   datetime: "24/07/2022, 12:08:39"
+        // },
+        // {
+        //   id: 1658635212989,
+        //   title: 'Eat bananas',
+        //   done: false,
+        //   datetime: "24/07/2022, 12:08:39"
+        // },
+        // {
+        //   id: 1658635212990,
+        //   title: 'Wake up',
+        //   done: false,
+        //   datetime: "24/07/2022, 12:08:39"
+        // },
+        // {
+        //   id: 1658635212995,
+        //   title: 'Get bananas',
+        //   done: false,
+        //   datetime: "24/07/2022, 12:08:39"
+        // }
       ],
     }
   },

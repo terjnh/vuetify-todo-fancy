@@ -26,16 +26,10 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+
     <v-card class="overflow-hidden">
-      <v-app-bar 
-      app 
-      color="primary" 
-      dark 
-      shrink-on-scroll 
-      prominent 
-      src="https://picsum.photos/1920/1080?random" 
-      fade-img-on-scroll
-        scroll-target="#scrolling-techniques-3">
+      <v-app-bar app color="secondary" dark shrink-on-scroll prominent src="https://picsum.photos/1920/1080?random"
+        fade-img-on-scroll scroll-target="#scrolling-techniques-3">
         <template v-slot:img="{ props }">
           <v-img v-bind="props" gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"></v-img>
         </template>
@@ -60,23 +54,27 @@
 
         <template v-slot:extension>
           <v-tabs align-with-title>
-            <v-tab>Tab 1</v-tab>
+            <v-tab @click="changeAlertState">Trigger Alert</v-tab>
           </v-tabs>
         </template>
       </v-app-bar>
-      <v-sheet
-      id="scrolling-techniques-3"
-      class="overflow-y-auto"
-      max-height="900"
-    >
-    <v-main>
-      <router-view></router-view>
-    </v-main>
-    <v-container style="height: 1000px;"></v-container>
-    </v-sheet>
     </v-card>
+      <v-sheet id="scrolling-techniques-3" class="overflow-y-auto" max-height="900">
+        <v-main>
+          <router-view></router-view>
+        </v-main>
+        <v-container style="height: 1000px;">
 
-    
+      <v-alert
+      :value="isAlertShown" 
+      color="blue-grey"
+      elevation="3"
+      type="info"
+      transition="fade-transition"
+      >This is a test alert</v-alert>
+
+        </v-container>
+      </v-sheet>
 
   </v-app>
 </template>
@@ -90,6 +88,13 @@ export default {
         { title: 'Todo', icon: 'mdi-format-list-checks', to: '/' },
         { title: 'About', icon: 'mdi-help-box', to: '/about' },
       ],
+      isAlertShown: false
+    }
+  },
+  methods: {
+    changeAlertState() {
+      this.isAlertShown = !this.isAlertShown
+      console.log("isAlertShown:", this.isAlertShown)
     }
   }
 }

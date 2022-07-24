@@ -17,3 +17,7 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+Try this:
+https://vuetifyjs.com/en/styles/transitions/#todo-list
