@@ -1,5 +1,13 @@
 <template>
   <div class="home pa-0">
+
+    <v-text-field class="pa-3" v-model="newTaskTitle" outlined label="Add Task" append-icon="mdi-plus" hide-details
+      clearable
+      @click:append="addTask"
+      @keyup:enter="addTask"
+      >
+    </v-text-field>
+
     <v-list class="pt-0" flat subheader>
       <v-subheader>List of ToDo items:</v-subheader>
       <div v-for="task in tasks" :key="task.id">
@@ -14,14 +22,14 @@
               </v-list-item-title>
             </v-list-item-content>
 
-<!-- @click.stop enables the 'delete' button to NOT trigger task.done -->
-            <v-list-item-action
-            @click.stop="deleteTask(task.id)"
-            >
-            <v-btn icon>
-              <v-icon color="primary">mdi-delete</v-icon>
-            </v-btn>
-          </v-list-item-action>
+            <h5 class="black--text font-italic font-weight-regular mb-0">{{task.datetime}}</h5>
+
+            <!-- @click.stop enables the 'delete' button to NOT trigger task.done -->
+            <v-list-item-action @click.stop="deleteTask(task.id)">
+              <v-btn icon>
+                <v-icon color="primary">mdi-delete</v-icon>
+              </v-btn>
+            </v-list-item-action>
           </template>
         </v-list-item>
         <v-divider inset></v-divider>
@@ -37,161 +45,55 @@ export default {
   name: 'Home',
   data() {
     return {
+      newTaskTitle: '',
       tasks: [
         {
-          id: 1,
+          id: 1658635212987,
           title: 'Wake up',
-          done: false
+          done: false,
+          datetime: "24/07/2022, 12:08:39"
         },
         {
-          id: 2,
+          id: 1658635212988,
           title: 'Get bananas',
-          done: false
+          done: false,
+          datetime: "24/07/2022, 12:08:39"
         },
         {
-          id: 3,
+          id: 1658635212989,
           title: 'Eat bananas',
-          done: false
+          done: false,
+          datetime: "24/07/2022, 12:08:39"
         },
         {
-          id: 4,
+          id: 1658635212990,
           title: 'Wake up',
-          done: false
+          done: false,
+          datetime: "24/07/2022, 12:08:39"
         },
         {
-          id: 5,
+          id: 1658635212995,
           title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 6,
-          title: 'Eat bananas',
-          done: false
-        },
-        {
-          id: 7,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id: 8,
-          title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 9,
-          title: 'Eat bananas',
-          done: false
-        },
-        {
-          id: 10,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id: 11,
-          title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 12,
-          title: 'Eat bananas',
-          done: false
-        },
-        {
-          id: 13,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id: 14,
-          title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 15,
-          title: 'Eat bananas',
-          done: false
-        },
-                {
-          id: 16,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id: 17,
-          title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 18,
-          title: 'Eat bananas',
-          done: false
-        },
-        {
-          id: 19,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id: 20,
-          title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 21,
-          title: 'Eat bananas',
-          done: false
-        },
-        {
-          id: 22,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id: 23,
-          title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 24,
-          title: 'Eat bananas',
-          done: false
-        },
-        {
-          id: 25,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id: 26,
-          title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 27,
-          title: 'Eat bananas',
-          done: false
-        },
-        {
-          id: 28,
-          title: 'Wake up',
-          done: false
-        },
-        {
-          id: 29,
-          title: 'Get bananas',
-          done: false
-        },
-        {
-          id: 30,
-          title: 'Eat bananas',
-          done: false
+          done: false,
+          datetime: "24/07/2022, 12:08:39"
         }
       ],
     }
   },
   methods: {
+    addTask() {
+      console.log('AddTask')
+      var dateNow = new Date()
+      let newTask = {
+        id: Date.now(),
+        title: this.newTaskTitle,
+        done: false,
+        datetime: dateNow.toLocaleString()
+      }
+      this.tasks.push(newTask)
+      this.newTaskTitle = ''
+      console.log("tasks:", this.tasks)
+    },
     doneTask(id) {
       let task = this.tasks.filter(task => task.id === id)[0]
       task.done = !task.done
